@@ -1,25 +1,47 @@
 ---
-import '../styles/global.css';
-// Component Imports
-import Button from '../components/Button.astro';
+import MainLayout from "../layouts/main.astro";
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+import ContactFormModal from "../components/ContactFormModal.astro";
+import ContactFormBtn from "../components/ContactFormBtn.astro";
+import HeroImage from "../components/HeroImage.astro";
+import Footer from "../components/Footer.astro";
+import { formatDate } from "../utils/date";
+import ProjectList from "../components/ProjectList.astro";
+
+const contactFormId = "contactFormDialog";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
+<MainLayout content={{ title: "ManuXO5 - Developer Portfolio" }}>
+	<ContactFormModal id={contactFormId} />
+	<ContactFormBtn formId={contactFormId} />
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
+	<header class="px-7 md:max-w-3xl md:mx-auto">
+		<div class="pt-10 md:center md:flex-col">
+			<div>
+				<HeroImage class="size-28" />
+			</div>
+
+			<h1 class="pt-5 text-2xl font-bold text-primary dark:text-primary">
+				Hey, I&apos;m ManuXO5
+			</h1>
+
+			<div
+				class="pt-2 md:pt-5 md:max-w-xl text-lg space-y-5 text-muted-foreground"
+			>
+				I'm a software developer specializing in building clean, performant
+				digital experiences. I thrive on turning complex problems into simple
+				and beautiful.
+			</div>
 		</div>
-	</body>
-</html>
+	</header>
+
+	<main
+		class="pt-20 pb-10 md:pt-40 md:max-w-3xl mx-auto px-7 text-muted-foreground"
+	>
+		<h2 class="font-mono text-sm">[ Work ]</h2>
+
+		<ProjectList class="pt-7" />
+	</main>
+
+	<Footer />
+</MainLayout>

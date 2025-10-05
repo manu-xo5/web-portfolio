@@ -1,0 +1,16 @@
+---
+const { class: className } = Astro.props;
+---
+
+<div
+	class:list={[
+		"size-24 md:w-28 md:h-28 bg-neutral-900 border border-neutral-800 rounded-xl flex-shrink-0 overflow-hidden",
+		className,
+	]}
+>
+	<img
+		src="/hero-image.png"
+		alt="Manu Xo5"
+		class="w-full h-full object-cover"
+	/>
+</div>

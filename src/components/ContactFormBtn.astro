@@ -1,0 +1,21 @@
+---
+const { formId } = Astro.props;
+---
+
+<div class="p-8 center justify-end">
+	<button
+		id="contactBtn"
+		data-form-id={formId}
+		type="button"
+		class="bg-background text-right z-20 font-mono text-sm text-muted-foreground hover:text-muted-foreground transition-colors"
+	>
+		[ Contact ]
+	</button>
+</div>
+
+<script is:inline>
+	contactBtn.onclick = () => {
+		const formId = contactBtn.dataset.formId;
+		document.getElementById(formId).showModal();
+	};
+</script>

@@ -1,0 +1,56 @@
+---
+import Dialog from "./Dialog.astro";
+import Footer from "./Footer.astro";
+
+const { id } = Astro.props;
+---
+
+<Dialog id={id} class="p-8">
+	<div class="center justify-between">
+		Get in Touch
+
+		<button
+			type="button"
+			aria-label="Close dialog"
+			onclick="this.closest('dialog').close()"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="lucide lucide-x-icon lucide-x"
+			>
+				<path d="M18 6 6 18"></path>
+				<path d="m6 6 12 12"></path>
+			</svg>
+		</button>
+	</div>
+
+	<section>
+		<form class="form space-y-4 pt-8">
+			<input
+				type="email"
+				placeholder="Your Email"
+				class="bg-input dark:bg-input/30 border border-input w-full rounded-md px-3 h-10 text-neutral-100 placeholder-neutral-500 transition-colors"
+			/>
+			<textarea
+				placeholder="Your Message"
+				rows="4"
+				class="dark:bg-input/30 bg-input border border-input text-input w-full rounded-md p-3 text-neutral-100 placeholder-neutral-500 transition-colors"
+			></textarea>
+
+			<button
+				type="submit"
+        class="rounded-md h-10 w-full px-6 bg-primary/50 border border-white/30 text-white"
+			>
+				Send Message
+			</button>
+		</form>
+	</section>
+</Dialog>
